@@ -3,48 +3,28 @@
   "categories": [
     {
       "id": 1,
-      "name": "hoba na",
-      "slug": "hoba-na"
+      "name": "Male",
+      "slug": "male"
     },
     {
       "id": 2,
-      "name": "holo lolo",
-      "slug": "holo-lolo"
+      "name": "Female",
+      "slug": "female"
     },
     {
       "id": 3,
-      "name": "holo",
-      "slug": "holo"
+      "name": "Baby",
+      "slug": "baby"
     },
     {
       "id": 4,
-      "name": "mobiles",
+      "name": "Mobiles",
       "slug": "mobiles"
     },
     {
       "id": 5,
-      "name": "womans holo na",
-      "slug": "womans-holo-na"
-    },
-    {
-      "id": 6,
-      "name": "gelos",
-      "slug": "gelos"
-    },
-    {
-      "id": 7,
-      "name": "golo golo",
-      "slug": "golo-golo"
-    },
-    {
-      "id": 8,
-      "name": "hoya galo",
-      "slug": "hoya-galo"
-    },
-    {
-      "id": 10,
-      "name": "galo galo",
-      "slug": "galo-galo"
+      "name": "Panjabi",
+      "slug": "panjabi"
     }
   ],
   "tags": []
