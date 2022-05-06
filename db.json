@@ -1,0 +1,51 @@
+{
+  "Products": [],
+  "categories": [
+    {
+      "id": 1,
+      "name": "hoba na",
+      "slug": "hoba-na"
+    },
+    {
+      "id": 2,
+      "name": "holo lolo",
+      "slug": "holo-lolo"
+    },
+    {
+      "id": 3,
+      "name": "holo",
+      "slug": "holo"
+    },
+    {
+      "id": 4,
+      "name": "mobiles",
+      "slug": "mobiles"
+    },
+    {
+      "id": 5,
+      "name": "womans holo na",
+      "slug": "womans-holo-na"
+    },
+    {
+      "id": 6,
+      "name": "gelos",
+      "slug": "gelos"
+    },
+    {
+      "id": 7,
+      "name": "golo golo",
+      "slug": "golo-golo"
+    },
+    {
+      "id": 8,
+      "name": "hoya galo",
+      "slug": "hoya-galo"
+    },
+    {
+      "id": 10,
+      "name": "galo galo",
+      "slug": "galo-galo"
+    }
+  ],
+  "tags": []
+}
