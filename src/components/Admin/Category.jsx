@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import { Button, Form, Table } from 'react-bootstrap';
 
 const Category = () => {
@@ -22,9 +22,6 @@ const Category = () => {
   // Cat edit state
   const [editForm, setEditForm] = useState(false)
 
-  // cat edit data state
-  // const [editFormData, setEditFormData] = useState()
-
   // Handle edit form
   const handleEditForm = (id) => {
     setAddForm(false);
@@ -44,7 +41,6 @@ const Category = () => {
       slug: makeSlug(input.name)
     }).then(() => {
       setEditForm(false)
-      setInput('')
     })
   }
 
@@ -63,7 +59,6 @@ const Category = () => {
       slug: makeSlug(input)
     }).then(() => {
       setAddForm(false)
-      setInput('')
     })
   }
 
@@ -98,9 +93,9 @@ const Category = () => {
         <h3>Edit Category</h3>
         <Form onSubmit={ handleUpdateForm }>
           <Form.Group className='my-3'>
-            <Form.Control value={ input.name } onChange={ e => setInput({...input, name: e.target.value})} type='text' placeholder='Type your Category' />
+            <Form.Control value={ input.name } onChange={ e => setInput({...input, name: e.target.value}) } type='text' placeholder='Type your Category' />
           </Form.Group>
-          <Button type='submit' variant='success' size='sm'>Edit Category</Button>
+          <Button type='submit' variant='success' size='sm'>Update Category</Button>
         </Form>
         </>
       }
@@ -135,4 +130,4 @@ const Category = () => {
   )
 }
 
-export default Category
+export default Category;
