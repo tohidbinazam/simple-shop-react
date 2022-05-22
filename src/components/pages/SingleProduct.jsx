@@ -1,10 +1,31 @@
-import React from 'react'
-import single1 from '../../_assets/images/shop/single-1.jpg'
-import single2 from '../../_assets/images/shop/single-2.jpg'
-import single3 from '../../_assets/images/shop/single-3.jpg'
-import single4 from '../../_assets/images/shop/single-4.jpg'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
+import Rating from '../partials/Rating';
 
 const SingleProduct = () => {
+  const { product_slug } = useParams()
+
+  // product state
+  const [product, setProduct] = useState([])
+
+  // Related products state
+  const [relProducts, setRelProduct] = useState([]);
+
+  // Get product
+  useEffect(() => {
+    axios.get(`http://localhost:5050/products?slug=${product_slug}&_expand=category&_expand=tag`).then(res => {
+    setProduct(res.data[0])
+    })
+  }, [product, product_slug])
+  
+  // Related products
+  axios.get(`http://localhost:5050/categories/${product.categoryId}/products`).then(res => {
+    setRelProduct(res.data.reverse())
+  })
+
+  console.log(product);
+
   return (
     <section>
       <div class="container">
@@ -12,8 +33,8 @@ const SingleProduct = () => {
           <div class="row">
             <div class="col-md-6">
               <div data-options="{&quot;animation&quot;: &quot;slide&quot;, &quot;controlNav&quot;: true}" class="flexslider nav-inside control-nav-dark">
-                  <img src={ single1 } alt="" />
-                {/* <ul class="slides">
+                  <img src={ product.proLink } alt="" />
+                <ul class="slides">
                   <li>
                     <img src="images/shop/single-1.jpg" alt="" />
                   </li>
@@ -26,20 +47,27 @@ const SingleProduct = () => {
                   <li>
                     <img src="images/shop/single-4.jpg" alt="" />
                   </li>
-                </ul> */}
+                </ul>
               </div>
             </div>
             <div class="col-md-5 col-md-offset-1">
               <div class="title mt-0">
-                <h2>Notch Blazer in Longline<span class="red-dot"></span></h2>
+                <h2>{ product.name }<span class="red-dot"></span></h2>
                 <p class="m-0">Free Shipping Worldwide</p>
               </div>
               <div class="single-product-price">
                 <div class="row">
                   <div class="col-xs-6">
-                    <h3><del>$29.99</del><span>$24.99</span></h3>
+                    {
+                      product.sellPrice ? <h3><del>{ product.regularPrice } TK</del><span>{ product.sellPrice } TK</span></h3> : <h3><span>{ product.regularPrice } TK</span></h3>
+                    }  
                   </div>
-                  <div class="col-xs-6 text-right"><span class="rating-stars">              <i class="ti-star full"></i><i class="ti-star full"></i><i class="ti-star full"></i><i class="ti-star full"></i><i class="ti-star"></i><span class="hidden-xs">(3 Reviews)</span></span>
+                  <div class="col-xs-6 text-right">
+                    <span class="rating-stars">
+                      {
+                        <Rating rating={ product.rating } />
+                      }
+                    </span>
                   </div>
                 </div>
               </div>
@@ -57,7 +85,7 @@ const SingleProduct = () => {
                 <ul>
                   <li><span>Sizes:</span> S, M, L, XL</li>
                   <li><span>Colors:</span> Blue, Red, Grey</li>
-                  <li><span>Category:</span><a href="https://">Blazers</a>
+                  <li><span>Category:</span><a href="https://">{  }</a>
                   </li>
                   <li><span>Tags:</span><a href="https://">Outfit</a>-<a href="https://">Jeans</a>
                   </li>
@@ -169,62 +197,27 @@ const SingleProduct = () => {
         <div class="related-products">
           <h5 class="upper">Related Products</h5>
           <div class="row">
-            <div class="col-md-3 col-sm-6">
-              <div class="shop-product">
-                <div class="product-thumb">
-                  <a href="https://">
-                    <img src={ single1 } alt="" />
-                  </a>
-                </div>
-                <div class="product-info">
-                  <h4 class="upper"><a href="https://">Premium Notch Blazer</a></h4><span>$79.99</span>
-                  <div class="save-product"><a href="https://"><i class="icon-heart"></i></a>
+            {
+              relProducts.map(data => 
+                product_slug !== data.slug ?
+                <div class="col-md-3 col-sm-6">
+                  <div class="shop-product">
+                    <div class="product-thumb">
+                      <a href="https://">
+                        <img src={ data.proLink } alt="" />
+                      </a>
+                    </div>
+                    <div class="product-info">
+                      <h4 class="upper"><a href="https://">{ data.name }</a></h4><span>{ data.sellPrice } BDT</span>
+                      <div class="save-product"><a href="https://"><i class="icon-heart"></i></a>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-              <div class="shop-product">
-                <div class="product-thumb">
-                  <a href="https://">
-                    <img src={ single2 } alt="" />
-                  </a>
-                </div>
-                <div class="product-info">
-                  <h4 class="upper"><a href="https://">Premium Suit Blazer</a></h4><span>$199.99</span>
-                  <div class="save-product"><a href="https://"><i class="icon-heart"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-              <div class="shop-product">
-                <div class="product-thumb">
-                  <a href="https://">
-                    <img src={ single3 } alt="" />
-                  </a>
-                </div>
-                <div class="product-info">
-                  <h4 class="upper"><a href="https://">Vintage Sweatshirt</a></h4><span>$99.99</span>
-                  <div class="save-product"><a href="https://"><i class="icon-heart"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-              <div class="shop-product">
-                <div class="product-thumb">
-                  <a href="https://">
-                    <img src={ single4 } alt="" />
-                  </a>
-                </div>
-                <div class="product-info">
-                  <h4 class="upper"><a href="https://">Longline Jersey Jacket</a></h4><span>$19.99</span>
-                  <div class="save-product"><a href="https://"><i class="icon-heart"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
+                : ''
+              )
+            }
+            
           </div>
         </div>
       </div>

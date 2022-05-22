@@ -1,8 +1,8 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button, Form, Table } from 'react-bootstrap';
 
-const Category = () => {
+const Category = ({ cats }) => {
 
   // Make slug
   const makeSlug = (data) => {
@@ -15,9 +15,6 @@ const Category = () => {
 
   // Form data state
   const [input, setInput] = useState([])
-  
-  // Get data state
-  const [cats, setCats] = useState([])
 
   // Cat edit state
   const [editForm, setEditForm] = useState(false)
@@ -61,13 +58,7 @@ const Category = () => {
       setAddForm(false)
     })
   }
-
-  // Get all data
-  useEffect(() => {
-    axios.get('http://localhost:5050/categories').then(res => {
-      setCats(res.data.reverse())
-    })
-  }, [cats])
+  
   
   return (
     <div>

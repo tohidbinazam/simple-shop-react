@@ -1,8 +1,8 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Button, Form, Table } from 'react-bootstrap';
 
-const Tag = () => {
+const Tag = ({ tags }) => {
 
   // Make slug
   const makeSlug = (data) => {
@@ -15,9 +15,6 @@ const Tag = () => {
 
   // Form data state
   const [input, setInput] = useState([])
-  
-  // Get data state
-  const [cats, setCats] = useState([])
 
   // Cat edit state
   const [editForm, setEditForm] = useState(false)
@@ -64,12 +61,6 @@ const Tag = () => {
     })
   }
 
-  // Get all data
-  useEffect(() => {
-    axios.get('http://localhost:5050/tags').then(res => {
-      setCats(res.data.reverse())
-    })
-  }, [cats])
   
   return (
     <div>
@@ -114,7 +105,7 @@ const Tag = () => {
         </thead>
         <tbody>
           {
-            cats.map((data, index) =>
+            tags.map((data, index) =>
               <tr>
                 <td>{ index + 1 }</td>
                 <td>{ data.name }</td>

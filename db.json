@@ -3,23 +3,56 @@
     {
       "name": "T-Shirt",
       "proLink": "https://www.team.gsamdani.com/wp-content/uploads/2016/05/tm9.jpg",
-      "categoryId": "2",
-      "tagId": "2",
+      "categoryId": 2,
+      "tagId": 2,
+      "regularPrice": "500",
+      "sellPrice": "200",
+      "slug": "t-shirt",
+      "rating": "3",
       "id": 1
     },
     {
       "name": "Pant",
-      "pLink": "https://www.team.gsamdani.com/wp-content/uploads/2016/05/tm7.jpg",
-      "categoryId": "4",
-      "tagId": "3",
+      "proLink": "https://www.team.gsamdani.com/wp-content/uploads/2016/05/tm7.jpg",
+      "categoryId": 4,
+      "tagId": 3,
+      "regularPrice": "800",
+      "sellPrice": "300",
+      "slug": "pant",
+      "rating": "1",
       "id": 2
     },
     {
       "name": "Pangabi",
-      "pLink": "https://www.team.gsamdani.com/wp-content/uploads/2016/05/tm5.jpg",
-      "categoryId": "3",
-      "tagId": "2",
+      "proLink": "https://www.team.gsamdani.com/wp-content/uploads/2016/05/tm5.jpg",
+      "categoryId": 3,
+      "tagId": 2,
+      "regularPrice": "200",
+      "sellPrice": "100",
+      "slug": "pangabi",
+      "rating": "5",
       "id": 3
+    },
+    {
+      "name": "Sondo gangy",
+      "proLink": "https://www.team.gsamdani.com/wp-content/uploads/2016/05/tm2.jpg",
+      "categoryId": 6,
+      "tagId": 3,
+      "regularPrice": "1200",
+      "slug": "sondo-gangy",
+      "rating": "2",
+      "id": 4
+    },
+    {
+      "name": "Hazi Bari",
+      "proLink": "https://www.team.gsamdani.com/wp-content/uploads/2016/05/tm2.jpg",
+      "categoryId": 4,
+      "tagId": 1,
+      "regularPrice": "300",
+      "sellPrice": "200",
+      "slug": "hazi-bari",
+      "rating": "4",
+      "id": 5
     }
   ],
   "categories": [
@@ -74,6 +107,11 @@
       "id": 3,
       "name": "us shirt",
       "slug": "us-shirt"
+    },
+    {
+      "id": 4,
+      "name": "Eid anondo",
+      "slug": "eid-anondo"
     }
   ]
 }
